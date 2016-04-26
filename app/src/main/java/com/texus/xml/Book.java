@@ -1,7 +1,5 @@
 package com.texus.xml;
 
-import android.util.Log;
-
 import java.util.ArrayList;
 
 /**
@@ -49,23 +47,28 @@ public class Book {
 
 
     public static ArrayList<Book> parseXML( String xml) {
-        Log.e("Xml","-------------------------------------------");
-        Log.e("Xml","XML:" + xml);
+
         ArrayList<Book> books = new ArrayList<Book>();
 
         TexXmlParser parser = new TexXmlParser(xml);
+
+        //Root element
         TexXmlElement rootElement = parser.rootElement;
 
+        //rootElement.children holds all child book elements
         for(TexXmlElement bookElement :  rootElement.children) {
             Book book = new Book();
+            //Reading an attribute value
             book.mCategory = bookElement.getAttribute("category");
 
+            //Get Element with name 'title'
             TexXmlElement elementTitle = bookElement.getSingleElementByName("title");
             if(elementTitle != null) {
                 book.mTitle = elementTitle.nodeValue;
                 book.mLanguage = elementTitle.getAttribute("lang");
             }
 
+            //Get all elements with name 'author'
             ArrayList<TexXmlElement> elementAuthors = bookElement.getElementsByName("author");
             if(elementAuthors != null) {
                 for( TexXmlElement elementAuthor : elementAuthors) {
@@ -73,6 +76,7 @@ public class Book {
                 }
             }
 
+            //Reading a node value
             TexXmlElement elementYear = bookElement.getSingleElementByName("year");
             if(elementYear != null) {
                 book.mYear = elementYear.nodeValue;
