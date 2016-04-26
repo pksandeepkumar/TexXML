@@ -15,20 +15,18 @@ import javax.xml.parsers.SAXParserFactory;
  * @author Sandeep Kumar
  *
  */
-public class TexXmlTree {
+public class TexXmlParser {
 
 	public TexXmlElement rootElement = null;
 	private TexXmlElement currentElement = null;
 
-	public TexXmlTree() {
 
-	}
-
-    public TexXmlTree(String xmlStringToLoad) {
+    public TexXmlParser(String xmlStringToLoad) {
         loadXML(xmlStringToLoad);
     }
 	
 	public void loadXML(String XmlToLoad ) {
+
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		if (null == factory) {
 			return;
@@ -78,7 +76,7 @@ public class TexXmlTree {
 		     }
 		 
 		     public void characters(char ch[], int start, int length) throws SAXException {
-		    	 String nodeText = new String(ch, start, length);
+                 currentElement.nodeValue = new String(ch, start, length);
 		        }
             };
 

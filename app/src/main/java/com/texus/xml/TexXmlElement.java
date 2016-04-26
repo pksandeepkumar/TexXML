@@ -17,6 +17,7 @@ public class TexXmlElement {
 	public HashMap<String, String> attributes = new HashMap<String, String>();
 	
 	public String name = null;
+    public String nodeValue = null;
 	
 
 	public TexXmlElement(String name) {
@@ -44,8 +45,8 @@ public class TexXmlElement {
 		children.add(ChildElement);
 	}
 
-	public TexXmlElement selectSingleElementByAttributeName(String AttributeName,
-                                                            String AttributeValue) {
+	public TexXmlElement getSingleElementByAttributeName(String AttributeName,
+                                                         String AttributeValue) {
 		try {
 			if ((null == AttributeName) || (AttributeName.length() < 1) ||
                     (null == AttributeValue)) {
@@ -64,8 +65,8 @@ public class TexXmlElement {
 	}
 	
 	
-	public ArrayList<TexXmlElement> selectElementsByAttributeName(String AttributeName,
-                                                                  String AttributeValue) {
+	public ArrayList<TexXmlElement> getElementsByAttributeName(String AttributeName,
+                                                               String AttributeValue) {
 		ArrayList<TexXmlElement> returnList = new ArrayList<TexXmlElement>();
 		try {
 			if ((null == AttributeName) || (AttributeName.length() < 1) ||
@@ -84,7 +85,7 @@ public class TexXmlElement {
 		return returnList;
 	}
 	
-	public TexXmlElement selectSingleElementByName(String Name) {
+	public TexXmlElement getSingleElementByName(String Name) {
 		try {
 			if ((null == Name) || (Name.length() < 1)) {
 				return null;
@@ -117,7 +118,7 @@ public class TexXmlElement {
 //	}
 	
 	
-	public ArrayList<TexXmlElement> selectElementsByName(String Name) {
+	public ArrayList<TexXmlElement> getElementsByName(String Name) {
 		ArrayList<TexXmlElement> returnList = new ArrayList<TexXmlElement>();
 		try {
 			if ((null == Name) || (Name.length() < 1)) {
