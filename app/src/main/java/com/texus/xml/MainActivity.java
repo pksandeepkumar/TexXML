@@ -24,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
         TextView tvOutput = (TextView) this.findViewById(R.id.tvOutput);
         String xml = readFromAssets("book.xml",this);
 
+        tvXML.setText(xml);
         ArrayList<Book> books = Book.parseXML(xml);
 
         StringBuffer stringBuffer = new StringBuffer();
@@ -36,8 +37,10 @@ public class MainActivity extends AppCompatActivity {
             }
             stringBuffer.append("Year:" + book.mYear + "\n");
             stringBuffer.append("Price:" + book.mPrice + "\n");
+            stringBuffer.append("--------------------------------- \n");
 
         }
+
         tvOutput.setText(stringBuffer.toString());
 
     }

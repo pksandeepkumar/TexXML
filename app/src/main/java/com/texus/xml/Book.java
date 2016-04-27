@@ -14,6 +14,10 @@ public class Book {
     public String mPrice;
     public ArrayList<String> mAuthors;
 
+    public Book() {
+        mAuthors = new ArrayList<String>();
+    }
+
 //    <bookstore>
 //    <book category="cooking">
 //    <title lang="en">Everyday Italian</title>

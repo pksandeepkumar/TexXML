@@ -7,6 +7,8 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import java.io.ByteArrayInputStream;
+
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
 import javax.xml.parsers.SAXParserFactory;
@@ -25,7 +27,7 @@ public class TexXmlParser {
         loadXML(xmlStringToLoad);
     }
 	
-	public void loadXML(String XmlToLoad ) {
+	public void loadXML(String xmlToLoad ) {
 
 		SAXParserFactory factory = SAXParserFactory.newInstance();
 		if (null == factory) {
@@ -79,6 +81,14 @@ public class TexXmlParser {
                  currentElement.nodeValue = new String(ch, start, length);
 		        }
             };
+
+        if (null != handler) {
+            try  {
+                ByteArrayInputStream bs = new ByteArrayInputStream(xmlToLoad.getBytes());
+                saxParser.parse(bs, handler);
+
+            } catch (Exception e1)  { return ; }
+        }
 
 	}
 	
