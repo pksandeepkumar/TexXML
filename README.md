@@ -1,8 +1,13 @@
 # TexXML
 Simple SAX parser helper for Java.
 
+##Useage
+
+Copy TexXmlParser.java and TexXmlElement.java to your project and parse as following 
+
 ```
-TexXmlParser 
+TexXmlParser parser = new TexXmlParser(stringXmlToParse);
+//Thats all
 ```
 
 Helps you to parse any structured XML in simple way. This is implemented using SAX parser.
