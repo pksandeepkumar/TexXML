@@ -5,7 +5,7 @@ Simple SAX parser helper for Java.
 
 Copy TexXmlParser.java and TexXmlElement.java to your project and parse as following 
 
-```
+```java
 TexXmlParser parser = new TexXmlParser(stringXmlToParse);
 //Thats all
 ```
@@ -13,7 +13,7 @@ TexXmlParser parser = new TexXmlParser(stringXmlToParse);
 Helps you to parse any structured XML in simple way. This is implemented using SAX parser.
 
 ##Example
-```
+```xml
 <bookstore>
     <book category="cooking">
         <title lang="en">Everyday Italian</title>
@@ -49,7 +49,7 @@ Helps you to parse any structured XML in simple way. This is implemented using S
 
 The above xml can be parsed as following way.
 
-```
+```java
 public static ArrayList<Book> parseXML( String xml) {
 
         ArrayList<Book> books = new ArrayList<Book>();
